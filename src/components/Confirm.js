@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { List, ListItem, ListItemText, Button } from "@material-ui/core";
 
 class Confirm extends Component {
   continue = (e) => {
@@ -15,18 +16,39 @@ class Confirm extends Component {
     const { values } = this.props;
 
     return (
-      <div>
-        <ul>
-          <li>{values.firstName}</li>
-          <li>{values.lastName}</li>
-          <li>{values.email}</li>
-          <li>{values.occupation}</li>
-          <li>{values.city}</li>
-          <li>{values.bio}</li>
-        </ul>
-        <button onClick={this.continue}>Confirm & Continue</button>
-        <button onClick={this.back}>Back</button>
-      </div>
+      <React.Fragment>
+        <List component="nav">
+          <ListItem style={{ textAlign: "center" }}>
+            <ListItemText primary={values.firstName} />
+          </ListItem>
+          <ListItem style={{ textAlign: "center" }}>
+            <ListItemText primary={values.lastName} />
+          </ListItem>
+          <ListItem style={{ textAlign: "center" }}>
+            <ListItemText primary={values.email} />
+          </ListItem>
+          <ListItem style={{ textAlign: "center" }}>
+            <ListItemText primary={values.occupation} />
+          </ListItem>
+          <ListItem style={{ textAlign: "center" }}>
+            <ListItemText primary={values.city} />
+          </ListItem>
+          <ListItem style={{ textAlign: "center" }}>
+            <ListItemText primary={values.bio} />
+          </ListItem>
+        </List>
+        <Button
+          style={{ marginRight: 10 }}
+          onClick={this.continue}
+          color="primary"
+          variant="contained"
+        >
+          Confirm & Continue
+        </Button>
+        <Button onClick={this.back} color="default" variant="contained">
+          Back
+        </Button>
+      </React.Fragment>
     );
   }
 }
